@@ -39,37 +39,6 @@ class Posts extends Component {
       this.setState({posts: posts, isLoading: false})
     })
   }
-  // async deletePost(postID) {
-  //   try {
-  //     let response = await fetch('http://localhost:8080/blog/posts', {
-  //       method: 'DELETE',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Accept': 'application/json'
-  //       },
-  //       body: JSON.stringify({_id: postID}),
-  //     })
-  //     let res = await response.json();
-  //     if(response.status >= 200 && response.status < 300) {
-  //       // delete post from array
-  //       this.fetchPosts();
-  //     } else {
-  //       let errer = res;
-  //       throw error;
-  //     }
-  //   } catch(errors) {
-  //     let formErrors = JSON.parse(errors);
-  //     let errorsArray = [];
-  //     for(var key in formErrors) {
-  //       if(formErrors[key].length > 1) {
-  //         formErrors[key].map(error => errorsArray.push(`${key} ${error}`));
-  //       } else {
-  //         errorsArray.push(`${key} ${formErrors[key]}`);
-  //       }
-  //     }
-  //     this.setState({errors: errorsArray});
-  //   }
-  // }
   deletePost(postID) {
     console.log("fetching... delete: ", postID)
     let accessToken;
@@ -96,7 +65,6 @@ class Posts extends Component {
       })
     })
   }
-
   listPost = (post, index) => (
       <View key={index} style={styles.post}>
         <Text style={styles.postTitle}>{post.title}</Text>
