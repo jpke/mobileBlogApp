@@ -45,8 +45,8 @@ export default class Register extends Component {
   async onRegisterPressed() {
     this.setState({showProgress: true})
     try {
-      let response = await fetch('http://localhost:8080/blog/users', {
-      // let response = await fetch('https://portfolio-express.herokuapp.com/blog/users', {
+      // let response = await fetch('http://localhost:8080/blog/users', {
+      let response = await fetch('https://portfolio-express.herokuapp.com/blog/users', {
                               method: 'POST',
                               headers: {
                                 'Accept': 'application/json',

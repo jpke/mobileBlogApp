@@ -26,8 +26,8 @@ class Posts extends Component {
   }
   fetchPosts() {
     this.setState({isLoading: true})
-    fetch('http://localhost:8080/blog/posts', {
-    // fetch('https://portfolio-express.herokuapp.com/blog/posts', {
+    // fetch('http://localhost:8080/blog/posts', {
+    fetch('https://portfolio-express.herokuapp.com/blog/posts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
@@ -44,7 +44,8 @@ class Posts extends Component {
     let accessToken;
     return accessToken = AsyncStorage.getItem(ACCESS_TOKEN)
     .then((accessToken) => {
-      fetch('http://localhost:8080/blog/posts', {
+      fetch('https://portfolio-express.herokuapp.com/blog/posts', {
+      // fetch('http://localhost:8080/blog/posts', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -69,7 +70,7 @@ class Posts extends Component {
       <View key={index} style={styles.post}>
         <Text style={styles.postTitle}>{post.title}</Text>
         <Text style={styles.postDescription}>{post.description}</Text>
-        <Text>{post.body}</Text>
+        <Text style={styles.body}>{post.body}</Text>
         <TouchableHighlight onPress={this.deletePost.bind(this, post._id)} style={styles.deletePostButton}>
           <Text style={styles.deletePostButtonText}>
             Delete
@@ -121,6 +122,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     fontStyle: 'italic'
   },
+  body: {
+    marginTop: 10
+  },
   buttonText: {
     fontSize: 18,
     color: 'white',
@@ -133,28 +137,28 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     marginBottom: 10,
-    alignSelf: 'stretch',
     justifyContent: 'center'
   },
   post: {
-    padding: 10,
+    padding: 5,
+    paddingHorizontal: 10,
     marginBottom: 5,
     borderWidth: 1,
     borderColor: '#48BBEC',
     borderRadius: 10
   },
   deletePostButton: {
-    height: 36,
+    height: 18,
+    width: 60,
     backgroundColor: '#48BBEC',
     borderColor: '#48BBEC',
     borderWidth: 1,
     borderRadius: 8,
-    marginBottom: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+    marginTop: 10,
+    alignSelf: 'flex-end'
   },
   deletePostButtonText: {
-    fontSize: 18,
+    fontSize: 12,
     color: 'white',
     alignSelf: 'center'
   },

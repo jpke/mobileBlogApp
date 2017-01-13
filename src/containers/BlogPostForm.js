@@ -24,8 +24,8 @@ export default class BlogPostForm extends Component {
         let title = this.refs[1]._lastNativeText
         let description = this.refs[2]._lastNativeText
         let body = this.refs[3]._lastNativeText
-        fetch('http://localhost:8080/blog/posts', {
-        // fetch('https://portfolio-express.herokuapp.com/blog/posts', {
+        // fetch('http://localhost:8080/blog/posts', {
+        fetch('https://portfolio-express.herokuapp.com/blog/posts', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
