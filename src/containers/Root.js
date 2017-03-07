@@ -38,8 +38,8 @@ export default class Root extends Component {
     let accessToken = token
 
     try {
-      let response = await fetch('http://localhost:8080/blog/users', {
-      // let response = await fetch('https://portfolio-express.herokuapp.com/blog/users', {
+      // let response = await fetch('http://localhost:8080/blog/users', {
+      let response = await fetch('https://portfolio-express.herokuapp.com/blog/users', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
