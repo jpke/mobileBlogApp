@@ -72,7 +72,7 @@ export default class Root extends Component {
             <Text style={styles.buttonText}>Register</Text>
           </TouchableHighlight>
           <TouchableHighlight onPress={ this.navigate.bind(this, 'Login') } style={styles.button}>
-            <Text style={styles.buttonText}>Login</Text>
+            <Text style={styles.buttonText}>Login / Demo</Text>
           </TouchableHighlight>
         </View>
       </View>

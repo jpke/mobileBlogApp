@@ -42,8 +42,8 @@ class Login extends Component {
         console.log("error is: " + err);
     });
   }
-  async onLoginPressed() {
-    console.log("State: ", this.state)
+  async onLoginPressed(email = this.state.email, password = this.state.password) {
+    console.log("State: ", email, password)
     this.setState({showProgress: true})
     try {
       // let response = await fetch('http://localhost:8080/blog/login', {
@@ -54,11 +54,12 @@ class Login extends Component {
                                 'Content-Type': 'application/json',
                               },
                               body: JSON.stringify({
-                                  email: this.state.email,
-                                  password: this.state.password,
+                                  email: email,
+                                  password: password,
                               })
                             });
       let res = await response.json();
+      console.log("status: ", res.status)
       if (response.status >= 200 && response.status < 300) {
           //Handle success
           let accessToken = res.token;
@@ -76,6 +77,9 @@ class Login extends Component {
         console.log("error " + error);
         this.setState({showProgress: false});
     }
+  }
+  demo(){
+    this.onLoginPressed("Demo@email.com", "password");
   }
   render() {
 
@@ -98,6 +102,9 @@ class Login extends Component {
           <Text style={styles.buttonText}>
             Login
           </Text>
+        </TouchableHighlight>
+        <TouchableHighlight onPress={this.demo.bind(this) } style={styles.button}>
+          <Text style={styles.buttonText}>Demo</Text>
         </TouchableHighlight>
         <TouchableHighlight onPress={this.navigate.bind(this,'Home')} style={styles.button}>
           <Text style={styles.buttonText}>
